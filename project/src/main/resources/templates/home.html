@@ -1,0 +1,107 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+ <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   
+ 
+ <script src="js/angular.min.js"></script>
+ 
+<!--  <script src="js/angular-resource.min.js"></script>
+
+ -->
+  <script src="js/angular-ui-router.js"></script>
+ 
+ <script src=" https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.4.0/angular-resource.js
+   "></script>
+  <script src="controller/register.js"></script>
+</head>
+<body>
+<div ng-app="app" ng-controller="ss">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="register"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+        <li><a ui-sref="logout"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+        <li><a ui-sref="logout"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
+      </ul>
+    </div>
+<div class="form-group form-group-lg jumbotron text-center col-md-12">
+<nav class="navbar navbar-dark bg-primary" style="margin-bottom:60px">
+<span class="navbar-text">
+<h2 class="col-md-12 "style="color:black;margin-right:900px">SYMPHISYS</h2>
+</span>
+</nav>
+<form novalidate ng-submit="save()">
+<table class="col-md-6 col-md-offset-3">
+<tr><td><input type="text" class="form-control " ng-model="RegisterModal.id" ng-disabled="true"></td></tr>
+<tr><td><input type="text"  class="form-control " placeholder="FirstName" ng-model="RegisterModal.firstname"></td></tr>
+<tr><td><input type="text" class="form-control " placeholder="LastName" ng-model="RegisterModal.lastname"></td></tr>
+<tr><td><input type="test"  class="form-control "  placeholder="Email" ng-model="RegisterModal.email"></td></tr>
+<tr><td><input type="text" class="form-control " placeholder="Password" ng-model="RegisterModal.password"></td></tr>
+<tr><td><select class="form-control " ng-model="RegisterModal.college.id" ng-options="college.id as college.collegename for college in colleges" ></select></td></tr>
+<tr><td><input type="submit"  class="btn btn-primary btn-lg "   value="save">
+<input type="submit" class="btn btn-info  btn-lg"  ng-click="update()" value="update"></td>
+</tr>
+<tr><div class="alert alert-success" id="success-alert" ng-hide="success_alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Success Fully created </strong>
+</div></tr>
+<tr><div>
+
+</div></tr>
+</table>
+</form>
+</div>
+</div>
+</nav>
+<div>
+<table class="ui inverted green table  table-striped" >
+<thead>
+<tr><th>s.no</th><th>FirstName</th><th>LastName</th><th>email</th><th>password</th><th>edit</th><th>delete</th></tr>
+</thead>
+<tbody>
+<tr ng-repeat="ur in userListt">
+<td>{{ur.id}}</td>
+<td>{{ur.firstname}}</td>
+<td>{{ur.lastname}}</td>
+<td>{{ur.email}}</td>
+<td>{{ur.password}}</td>
+<td><input type="submit"  class="btn btn-success" ng-click="edit(ur.id,ur.firstname,ur.lastname,ur.email,ur.password,ur.college)" value="edit"></td>
+<td><input type="submit" class="btn btn-danger" ng-click="deletee(ur.id)" value="delete"></td>
+</tr>
+<tr>
+</tr>
+</tbody>
+</table>
+ <!-- <div class="col-md-12" >
+<ul class="pagination pagination-lg">
+    <div ng-repeat="t in rey" ng-init="num=0">
+    <li><h1>{{num+1 | limitTo:10}}</h1></li>
+         <li><h1>t.o</h1></li>
+    </div>
+  </ul>
+</div>  -->
+<div class="col-md-offset-5">
+<ul class="pagination pagination-lg">
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+</body>
+</html>
